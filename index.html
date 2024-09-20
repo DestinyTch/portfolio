@@ -546,7 +546,7 @@
         </div>
     </section>
 
- <!-- Contact -->
+<!-- Contact -->
 <section id="contact">
     <div class="container">
         <h6 class="text-center"><span class="btn btn-sm theme-button theme-text">What's next!</span></h6>
@@ -600,6 +600,7 @@
         emailjs.sendForm('service_vo4vh6e', 'template_g8vck5r', this)
             .then(function() {
                 alert('Email sent successfully!');
+                document.getElementById('contact-form').reset(); // Clear the form
             }, function(error) {
                 alert('Failed to send email: ' + JSON.stringify(error));
             });
