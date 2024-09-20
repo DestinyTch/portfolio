@@ -545,7 +545,6 @@
             </div>
         </div>
     </section>
-
 <!-- Contact -->
 <section id="contact">
     <div class="container">
@@ -555,7 +554,7 @@
         <div class="row justify-content-center" data-aos="fade-down" data-aos-delay="500">
             <div class="col-lg-8">
                 <div class="contact-form">
-                    <form id="contact-form" onsubmit="sendEmail(event)">
+                    <form id="contact-form" action="https://formspree.io/f/xkgwlrzk" method="POST">
                         <div class="row g-2">
                             <div class="col-md-6">
                                 <div class="form-group">
@@ -577,6 +576,10 @@
                                     <textarea style="resize: none;" class="form-control" id="message" name="message" rows="5" placeholder="Your message *" required></textarea>
                                 </div>
                             </div>
+
+                            <!-- Hidden field for redirection after successful submission -->
+                            <input type="hidden" name="_next" value="/assets/redirections//thank-you.html">
+
                             <div class="col-md-12">
                                 <button type="submit" class="btn primary-bg-btn mt-2">Send Message <i class="bi bi-arrow-up-right"></i></button>
                             </div>
@@ -587,25 +590,6 @@
         </div>
     </div>
 </section>
-
-<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-<script>
-    function sendEmail(event) {
-    event.preventDefault(); // Prevent the default form submission
-    console.log("Form submitted"); // Debugging line
-
-    emailjs.sendForm('service_vo4vh6e', 'template_g8vck5r', this)
-        .then(function() {
-            alert('Email sent successfully!');
-            console.log("Email sent"); // Debugging line
-            document.getElementById('contact-form').reset(); // Clear the form
-        }, function(error) {
-            alert('Failed to send email: ' + JSON.stringify(error));
-            console.log("Error:", error); // Debugging line
-        });
-}
-</script>
-
 
     <!-- Footer -->
     <footer id="footer">
