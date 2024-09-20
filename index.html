@@ -590,22 +590,22 @@
 
 <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
 <script>
-    (function(){
-        emailjs.init("GhW3njMLBQOKYF4MK"); // Your public API key
-    })();
-
     function sendEmail(event) {
-        event.preventDefault(); // Prevent the default form submission
+    event.preventDefault(); // Prevent the default form submission
+    console.log("Form submitted"); // Debugging line
 
-        emailjs.sendForm('service_vo4vh6e', 'template_g8vck5r', this)
-            .then(function() {
-                alert('Email sent successfully!');
-                document.getElementById('contact-form').reset(); // Clear the form
-            }, function(error) {
-                alert('Failed to send email: ' + JSON.stringify(error));
-            });
-    }
+    emailjs.sendForm('service_vo4vh6e', 'template_g8vck5r', this)
+        .then(function() {
+            alert('Email sent successfully!');
+            console.log("Email sent"); // Debugging line
+            document.getElementById('contact-form').reset(); // Clear the form
+        }, function(error) {
+            alert('Failed to send email: ' + JSON.stringify(error));
+            console.log("Error:", error); // Debugging line
+        });
+}
 </script>
+
 
     <!-- Footer -->
     <footer id="footer">
