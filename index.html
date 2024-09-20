@@ -546,7 +546,7 @@
         </div>
     </section>
 
-   <!-- Contact -->
+ <!-- Contact -->
 <section id="contact">
     <div class="container">
         <h6 class="text-center"><span class="btn btn-sm theme-button theme-text">What's next!</span></h6>
@@ -555,7 +555,7 @@
         <div class="row justify-content-center" data-aos="fade-down" data-aos-delay="500">
             <div class="col-lg-8">
                 <div class="contact-form">
-                    <form action="sendEmail.php" method="POST">
+                    <form id="contact-form" onsubmit="sendEmail(event)">
                         <div class="row g-2">
                             <div class="col-md-6">
                                 <div class="form-group">
@@ -587,6 +587,24 @@
         </div>
     </div>
 </section>
+
+<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script>
+    (function(){
+        emailjs.init("GhW3njMLBQOKYF4MK"); // Your public API key
+    })();
+
+    function sendEmail(event) {
+        event.preventDefault(); // Prevent the default form submission
+
+        emailjs.sendForm('service_vo4vh6e', 'template_g8vck5r', this)
+            .then(function() {
+                alert('Email sent successfully!');
+            }, function(error) {
+                alert('Failed to send email: ' + JSON.stringify(error));
+            });
+    }
+</script>
 
     <!-- Footer -->
     <footer id="footer">
